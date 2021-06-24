@@ -1,5 +1,5 @@
 # WordPress (Marketplace) on Alibaba Cloud
-Quick start with Wordpress on Alibaba Cloud.
+Quick start with Wordpress on Alibaba Cloud. We use the [Wordpress image on Alibaba Cloud Marketplace](https://marketplace.alibabacloud.com/products/56720001/WP_CMS_on_LAMP-sgcmjj00025386.html).
 
 ### Project URL
 [https://github.com/alibabacloud-howto/solution-marketplace-wordpress](https://github.com/alibabacloud-howto/solution-marketplace-wordpress)
