@@ -4,6 +4,14 @@ Quick start with WordPress on Alibaba Cloud. We use the [WordPress image on Alib
 ### Project URL
 [https://github.com/alibabacloud-howto/solution-marketplace-wordpress](https://github.com/alibabacloud-howto/solution-marketplace-wordpress)
 
+### Index
+
+- [Phase 0: "ALL-IN-ONE" for entry level deployment](https://github.com/alibabacloud-howto/solution-marketplace-wordpress#phase-0-all-in-one-for-entry-level-deployment)
+- [Phase 1: WordPress ECS Server + Standalone RDS MySQL in Basic Edition](https://github.com/alibabacloud-howto/solution-marketplace-wordpress#phase-1-wordpress-ecs-server--standalone-rds-mysql-in-basic-edition)
+- [Phase 2-1: SLB + WordPress ECS Servers (Auto-scaling) + Cloud Native PolarDB MySQL](https://github.com/alibabacloud-howto/solution-marketplace-wordpress#phase-2-1-slb--wordpress-ecs-servers-auto-scaling--cloud-native-polardb-mysql)
+- [Phase 2-2: SLB + WordPress ECS Servers (Auto-scaling) + Multi-AZ Redis Cache + RDS MySQL in High Availability Edition](https://github.com/alibabacloud-howto/solution-marketplace-wordpress#phase-2-2-slb--wordpress-ecs-servers-auto-scaling--multi-az-redis-cache--rds-mysql-in-high-availability-edition)
+- [Phase 2-3: SLB + WordPress ECS Servers (Auto-scaling) + Multi-AZ Redis Cache + Cloud Native PolarDB MySQL](https://github.com/alibabacloud-howto/solution-marketplace-wordpress#phase-2-3-slb--wordpress-ecs-servers-auto-scaling--multi-az-redis-cache--cloud-native-polardb-mysql)
+
 ---
 ### Phase 0: "ALL-IN-ONE" for entry level deployment
 - **WordPress with web app server and MySQL database are all built within a single ECS instance.**
