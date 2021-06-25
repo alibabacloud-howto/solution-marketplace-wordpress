@@ -7,6 +7,7 @@ Quick start with WordPress on Alibaba Cloud. We use the [WordPress image on Alib
 
 ### Phase 0: "ALL-IN-ONE" for entry level deployment
 WordPress with web app server and MySQL database are all built within a single ECS instance.
+
 <font color=#FF0000>This is for entry level deployment with low cost but without high availability feature for both web app and database.</font>
 
 ![image.png](https://github.com/alibabacloud-howto/solution-marketplace-wordpress/raw/master/images/archi-0.png)
@@ -15,6 +16,7 @@ Run the [terraform script](https://github.com/alibabacloud-howto/solution-market
 
 ### Phase 1: WordPress ECS Server + Standalone RDS MySQL in Basic Edition
 Decouple the database from web app server.
+
 <font color=#FF0000>More stable for both web app and database but still without high availability feature for both of them.</font>
 
 ![image.png](https://github.com/alibabacloud-howto/solution-marketplace-wordpress/raw/master/images/archi-1.png)
