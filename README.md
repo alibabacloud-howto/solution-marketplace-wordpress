@@ -8,7 +8,7 @@ Quick start with WordPress on Alibaba Cloud. We use the [WordPress image on Alib
 ### Phase 0: "ALL-IN-ONE" for entry level deployment
 WordPress with web app server and MySQL database are all built within a single ECS instance.
 
-<font color=#FF0000> This is for entry level deployment with low cost but without high availability feature for both web app and database. </font>
+<span style="font-family: color: #FF0000;">This is for entry level deployment with low cost but without high availability feature for both web app and database.</span>
 
 ![image.png](https://github.com/alibabacloud-howto/solution-marketplace-wordpress/raw/master/images/archi-0.png)
 
