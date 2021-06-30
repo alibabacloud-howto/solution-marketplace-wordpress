@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-06-24 19:01:27
+ * @LastEditTime: 2021-06-30 19:58:20
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /ws_cloudsolution/solution-marketplace-wordpress/README.md
+-->
 # WordPress (Marketplace) on Alibaba Cloud
 Quick start with WordPress on Alibaba Cloud. We use the [WordPress image on Alibaba Cloud Marketplace](https://marketplace.alibabacloud.com/products/56720001/WP_CMS_on_LAMP-sgcmjj00025386.html).
 
@@ -22,6 +30,18 @@ Quick start with WordPress on Alibaba Cloud. We use the [WordPress image on Alib
 Run the [terraform script](https://github.com/alibabacloud-howto/solution-marketplace-wordpress/blob/master/deployment/terraform/0_wordpress/main.tf) to initialize the resources. 
 Within the terraform script, please use the right ``Image ID`` of [WordPress image on the corresponding region](https://marketplace.alibabacloud.com/products/56720001/WP_CMS_on_LAMP-sgcmjj00025386.html).
 
+![image.png](https://github.com/alibabacloud-howto/solution-marketplace-wordpress/raw/master/images/phase0_1.png)
+
+![image.png](https://github.com/alibabacloud-howto/solution-marketplace-wordpress/raw/master/images/phase0_2.png)
+
+After the Terraform script execution, open the following URL in a Web browser to initialize WordPress: 
+
+```bash
+http://<ECS_EIP>
+```
+
+Note: Replace the <ECS_EIP> placeholder with the Elastic IP address of the ECS instance. 
+
 ---
 ### Phase 1: WordPress ECS Server + Standalone RDS MySQL in Basic Edition
 - **Decouple the database from web app server.**
@@ -31,6 +51,27 @@ Within the terraform script, please use the right ``Image ID`` of [WordPress ima
 
 Run the [terraform script](https://github.com/alibabacloud-howto/solution-marketplace-wordpress/blob/master/deployment/terraform/1_wordpress_rds/main.tf) to initialize the resources.
 Within the terraform script, please use the right ``Image ID`` of [WordPress image on the corresponding region](https://marketplace.alibabacloud.com/products/56720001/WP_CMS_on_LAMP-sgcmjj00025386.html).
+
+![image.png]()
+
+- After the Terraform script execution, logon to ECS via SSH, use the account root/N1cetest, the password has been predefined in Terraform script for this tutorial. If you changed the password, please use the correct password accordingly.
+
+```bash
+ssh root@<EIP_ECS>
+```
+
+Edit the WordPress configuration file to set the RDS MySQL URL, database and account information.
+
+```bash
+vim /data/wwwroot/wordpress/wp-config.php
+```
+
+![image.png]()
+
+Open the following URL in a Web browser to initialize WordPress:
+
+http://<ECS_EIP>
+Note: Replace the <ECS_EIP> placeholder with the Elastic IP address of the ECS instance that you obtained previously.
 
 ---
 ### Phase 2-1: SLB + WordPress ECS Servers (Auto-scaling) + Cloud Native PolarDB MySQL
