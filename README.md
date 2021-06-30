@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-24 19:01:27
- * @LastEditTime: 2021-06-30 19:58:20
+ * @LastEditTime: 2021-06-30 20:02:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ws_cloudsolution/solution-marketplace-wordpress/README.md
@@ -40,7 +40,7 @@ After the Terraform script execution, open the following URL in a Web browser to
 http://<ECS_EIP>
 ```
 
-Note: Replace the <ECS_EIP> placeholder with the Elastic IP address of the ECS instance. 
+Note: Replace the ``<ECS_EIP>`` placeholder with the Elastic IP address of the ECS instance. 
 
 ---
 ### Phase 1: WordPress ECS Server + Standalone RDS MySQL in Basic Edition
