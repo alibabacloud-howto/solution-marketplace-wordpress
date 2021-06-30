@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-24 19:01:27
- * @LastEditTime: 2021-06-30 20:02:27
+ * @LastEditTime: 2021-06-30 20:16:57
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ws_cloudsolution/solution-marketplace-wordpress/README.md
@@ -39,6 +39,8 @@ After the Terraform script execution, open the following URL in a Web browser to
 ```bash
 http://<ECS_EIP>
 ```
+
+![image.png](https://github.com/alibabacloud-howto/solution-marketplace-wordpress/raw/master/images/phase0_3.png)
 
 Note: Replace the ``<ECS_EIP>`` placeholder with the Elastic IP address of the ECS instance. 
 
