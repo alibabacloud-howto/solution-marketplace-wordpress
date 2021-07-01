@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-24 19:01:27
- * @LastEditTime: 2021-07-01 15:48:09
+ * @LastEditTime: 2021-07-01 15:49:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ws_cloudsolution/solution-marketplace-wordpress/README.md
@@ -19,7 +19,7 @@ Quick start with WordPress on Alibaba Cloud. We use the [WordPress image on Alib
 - [Phase 2-1: SLB + WordPress ECS Servers (Auto-scaling) + Cloud Native PolarDB MySQL](https://github.com/alibabacloud-howto/solution-marketplace-wordpress#phase-2-1-slb--wordpress-ecs-servers-auto-scaling--cloud-native-polardb-mysql)
 - [Phase 2-2: SLB + WordPress ECS Servers (Auto-scaling) + Multi-AZ Redis Cache + RDS MySQL in High Availability Edition](https://github.com/alibabacloud-howto/solution-marketplace-wordpress#phase-2-2-slb--wordpress-ecs-servers-auto-scaling--multi-az-redis-cache--rds-mysql-in-high-availability-edition)
 - [Phase 2-3: SLB + WordPress ECS Servers (Auto-scaling) + Multi-AZ Redis Cache + Cloud Native PolarDB MySQL](https://github.com/alibabacloud-howto/solution-marketplace-wordpress#phase-2-3-slb--wordpress-ecs-servers-auto-scaling--multi-az-redis-cache--cloud-native-polardb-mysql)
-- [Pricing]()
+- [Pricing](https://github.com/alibabacloud-howto/solution-marketplace-wordpress#pricing)
 
 ---
 ### Phase 0: "ALL-IN-ONE" for entry level deployment
