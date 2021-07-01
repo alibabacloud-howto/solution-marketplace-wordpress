@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-24 19:01:27
- * @LastEditTime: 2021-07-01 09:42:12
+ * @LastEditTime: 2021-07-01 10:02:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ws_cloudsolution/solution-marketplace-wordpress/README.md
@@ -87,6 +87,35 @@ Note: Replace the ``<ECS_EIP>`` placeholder with the Elastic IP address of the E
 
 Run the [terraform script](https://github.com/alibabacloud-howto/solution-marketplace-wordpress/blob/master/deployment/terraform/2_1_wordpress_slb_polardb/main.tf) to initialize the resources.
 Within the terraform script, please use the right ``Image ID`` of [WordPress image on the corresponding region](https://marketplace.alibabacloud.com/products/56720001/WP_CMS_on_LAMP-sgcmjj00025386.html).
+
+- After the Terraform script execution, logon to ECS via SSH, use the account root/N1cetest, the password has been predefined in Terraform script for this tutorial. If you changed the password, please use the correct password accordingly.
+
+![image.png](https://github.com/alibabacloud-howto/solution-marketplace-wordpress/raw/master/images/phase2_1_1.png)
+
+```bash
+ssh root@<EIP_ECS>
+```
+
+Edit the WordPress configuration file to set the PolarDB MySQL URL, database and account information.
+
+```bash
+vim /data/wwwroot/wordpress/wp-config.php
+```
+
+![image.png](https://github.com/alibabacloud-howto/solution-marketplace-wordpress/raw/master/images/phase2_1_2.png)
+
+Open the following URL in a Web browser to initialize WordPress:
+
+```
+http://<ECS_EIP>
+```
+
+Note: Replace the ``<ECS_EIP>`` placeholder with the Elastic IP address of the ECS instance that you obtained previously.
+
+#### Auto-scaling configuration
+After you have successfully configured and installed WordPress, you can follow the following guide for auto-scaling configurations:
+
+[https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting#step-4-optional-make-custom-ecs-image-for-auto-scaling](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting#step-4-optional-make-custom-ecs-image-for-auto-scaling)
 
 ---
 ### Phase 2-2: SLB + WordPress ECS Servers (Auto-scaling) + Multi-AZ Redis Cache + RDS MySQL in High Availability Edition

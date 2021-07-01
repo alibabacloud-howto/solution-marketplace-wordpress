@@ -167,7 +167,7 @@ resource "alicloud_instance" "instance" {
   security_groups = alicloud_security_group.group.*.id
 
   # series III
-  instance_type           = "ecs.n1.medium"
+  instance_type           = "ecs.c5.large"
   system_disk_category    = "cloud_ssd"
   system_disk_name        = "wp_system_disk_name"
   system_disk_size        = 40
