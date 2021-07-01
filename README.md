@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-24 19:01:27
- * @LastEditTime: 2021-07-01 14:11:23
+ * @LastEditTime: 2021-07-01 15:48:09
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ws_cloudsolution/solution-marketplace-wordpress/README.md
@@ -19,6 +19,7 @@ Quick start with WordPress on Alibaba Cloud. We use the [WordPress image on Alib
 - [Phase 2-1: SLB + WordPress ECS Servers (Auto-scaling) + Cloud Native PolarDB MySQL](https://github.com/alibabacloud-howto/solution-marketplace-wordpress#phase-2-1-slb--wordpress-ecs-servers-auto-scaling--cloud-native-polardb-mysql)
 - [Phase 2-2: SLB + WordPress ECS Servers (Auto-scaling) + Multi-AZ Redis Cache + RDS MySQL in High Availability Edition](https://github.com/alibabacloud-howto/solution-marketplace-wordpress#phase-2-2-slb--wordpress-ecs-servers-auto-scaling--multi-az-redis-cache--rds-mysql-in-high-availability-edition)
 - [Phase 2-3: SLB + WordPress ECS Servers (Auto-scaling) + Multi-AZ Redis Cache + Cloud Native PolarDB MySQL](https://github.com/alibabacloud-howto/solution-marketplace-wordpress#phase-2-3-slb--wordpress-ecs-servers-auto-scaling--multi-az-redis-cache--cloud-native-polardb-mysql)
+- [Pricing]()
 
 ---
 ### Phase 0: "ALL-IN-ONE" for entry level deployment
@@ -257,3 +258,29 @@ Please follow the this step to configure the Redis caching:
 After you have successfully configured and installed WordPress, you can follow the following guide for auto-scaling configurations:
 
 [https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting#step-4-optional-make-custom-ecs-image-for-auto-scaling](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting#step-4-optional-make-custom-ecs-image-for-auto-scaling)
+
+---
+### Pricing
+
+- We calculate the price based on the resource and service in ``Singapore`` region.
+- If auto-scaling is configured, the extra scaled ECS instances are not counted within the total price.
+- PolarDB is compute and storage decoupled, the fee of storage is not counted within the total price.
+
+| Cloud Service  | Specification | Pay-As-You-Go Price | Subscription Price |
+| --- | --- | --- | --- |
+| ECS | ecs.c5.large, 40GB SSD system disk, 100GB ultra disk data disk  | $0.11 USD/Hour | $55.94 USD/Month |
+| WordPress Image | | $0.055 USD/Hour | $40 USD/Month |
+| EIP | Pay By Bandwith 10Mbit/s | $3.3612 USD/Day | |
+| SLB | slb.s2.medium | $0.12 USD/Hour | |
+| RDS MySQL basic | mysql.n2.small.1, 1 core 2GB general purpose, 20GB ESSD | $0.03 USD/Hour | $14.18 USD/Month |
+| RDS MySQL high availability | mysql.x2.medium.2c, 2 core 4GB dedicated instance, 20GB ESSD | $0.25 USD/Hour | $119.17 USD/Month |
+| PolarDB MySQL | polar.mysql.x4.medium, 2 core 8 GB dedicated instance | $0.318 USD/Hour | $152 USD/Month |
+| Redis | redis.master.small.default, 1GB Master-Replica | $0.034 USD/Hour | $16.32 USD/Month |
+
+| Solution Phase  | Services | Estimated Hourly Price | Estimated Monthly Subscription Price |
+| --- | --- | --- | --- |
+| [Phase 0: "ALL-IN-ONE" for entry level deployment](https://github.com/alibabacloud-howto/solution-marketplace-wordpress#phase-0-all-in-one-for-entry-level-deployment) | ECS, WordPress Image, EIP for ECS | $0.305 USD/Hour | $196.776 USD/Month |
+| [Phase 1: WordPress ECS Server + Standalone RDS MySQL in Basic Edition](https://github.com/alibabacloud-howto/solution-marketplace-wordpress#phase-1-wordpress-ecs-server--standalone-rds-mysql-in-basic-edition) | ECS, WordPress Image, EIP for ECS, RDS MySQL basic| $0.335 USD/Hour | $210.956 USD/Month |
+| [Phase 2-1: SLB + WordPress ECS Servers (Auto-scaling) + Cloud Native PolarDB MySQL](https://github.com/alibabacloud-howto/solution-marketplace-wordpress#phase-2-1-slb--wordpress-ecs-servers-auto-scaling--cloud-native-polardb-mysql) | ECS, WordPress Image, SLB, EIP for ECS, EIP for SLB, PolarDB MySQL | $0.883 USD/Hour | $536.012 USD/Month |
+| [Phase 2-2: SLB + WordPress ECS Servers (Auto-scaling) + Multi-AZ Redis Cache + RDS MySQL in High Availability Edition](https://github.com/alibabacloud-howto/solution-marketplace-wordpress#phase-2-2-slb--wordpress-ecs-servers-auto-scaling--multi-az-redis-cache--rds-mysql-in-high-availability-edition) | ECS, WordPress Image, SLB, EIP for ECS, EIP for SLB, RDS MySQL high availability, Redis | $0.849 USD/Hour | $519.502 USD/Month |
+| [Phase 2-3: SLB + WordPress ECS Servers (Auto-scaling) + Multi-AZ Redis Cache + Cloud Native PolarDB MySQL](https://github.com/alibabacloud-howto/solution-marketplace-wordpress#phase-2-3-slb--wordpress-ecs-servers-auto-scaling--multi-az-redis-cache--cloud-native-polardb-mysql) | ECS, WordPress Image, SLB, EIP for ECS, EIP for SLB, PolarDB MySQL, Redis | $0.917 USD/Hour | $552.332 USD/Month |
