@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-24 19:01:27
- * @LastEditTime: 2021-07-01 15:49:55
+ * @LastEditTime: 2021-07-01 16:08:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ws_cloudsolution/solution-marketplace-wordpress/README.md
@@ -265,6 +265,7 @@ After you have successfully configured and installed WordPress, you can follow t
 - We calculate the price based on the resource and service in ``Singapore`` region.
 - If auto-scaling is configured, the extra scaled ECS instances are not counted within the total price.
 - PolarDB is compute and storage decoupled, the fee of storage is not counted within the total price.
+- By default, the ECS, RDS MySQL, PolarDB MySQL, Redis resource are all provisioned as "Pay As You Go" pricing mode through the Terraform provisioning script. Please go to the product web console to convert to "Subscription" pricing mode if needed.
 
 | Cloud Service  | Specification | Pay-As-You-Go Price | Subscription Price |
 | --- | --- | --- | --- |
