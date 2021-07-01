@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-24 19:01:27
- * @LastEditTime: 2021-07-01 10:02:46
+ * @LastEditTime: 2021-07-01 12:14:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /ws_cloudsolution/solution-marketplace-wordpress/README.md
@@ -127,6 +127,91 @@ After you have successfully configured and installed WordPress, you can follow t
 
 Run the [terraform script](https://github.com/alibabacloud-howto/solution-marketplace-wordpress/blob/master/deployment/terraform/2_2_wordpress_slb_redis_rds/main.tf) to initialize the resources.
 Within the terraform script, please use the right ``Image ID`` of [WordPress image on the corresponding region](https://marketplace.alibabacloud.com/products/56720001/WP_CMS_on_LAMP-sgcmjj00025386.html).
+
+- After the Terraform script execution, logon to ECS via SSH, use the account root/N1cetest, the password has been predefined in Terraform script for this tutorial. If you changed the password, please use the correct password accordingly.
+
+![image.png](https://github.com/alibabacloud-howto/solution-marketplace-wordpress/raw/master/images/phase2_2_1.png)
+
+```bash
+ssh root@<EIP_ECS>
+```
+
+Edit the WordPress configuration file to set the RDS MySQL URL, database and account information.
+
+```bash
+vim /data/wwwroot/wordpress/wp-config.php
+```
+
+![image.png](https://github.com/alibabacloud-howto/solution-marketplace-wordpress/raw/master/images/phase2_2_2.png)
+
+Open the following URL in a Web browser to initialize WordPress:
+
+```
+http://<ECS_EIP>
+```
+
+Note: Replace the ``<ECS_EIP>`` placeholder with the Elastic IP address of the ECS instance that you obtained previously.
+
+#### Configure Redis caching
+Run the following commands in sequence to download the Redis object cache plugin and unzip the plugin package: 
+
+```bash
+wget https://downloads.wordpress.org/plugin/redis-cache.2.0.18.zip 
+unzip redis-cache.2.0.18.zip 
+```
+
+Run the following commands in sequence to copy the redis-cache folder to the ``/data/wwwroot/wordpress/wp-content/plugins/`` path and configure WordPress to access ApsaraDB for Redis:
+
+```bash
+cp -rf redis-cache /data/wwwroot/wordpress/wp-content/plugins/ 
+vim /data/wwwroot/wordpress/wp-config.php
+```
+
+Complete the settings as follows: 
+
+```bash
+// Redis settings
+define( 'WP_REDIS_HOST', '<Redis URL>' );
+define( 'WP_REDIS_CLIENT', 'predis' );
+define( 'WP_REDIS_PORT', '6379' );
+define( 'WP_REDIS_DATABASE', '0');
+define( 'WP_REDIS_PASSWORD', 'wordpress:N1cetest' );
+```
+
+![image.png](https://github.com/alibabacloud-howto/solution-marketplace-wordpress/raw/master/images/phase2_2_3.png)
+
+Please MAKE SURE this Redis setting block is set at the first settings block of the wp-config.php file as shown in the image above.
+
+
+Run the following command to copy the object-cache configuration file to the ``/data/wwwroot/wordpress/wp-content/`` path:
+
+```bash
+cp /data/wwwroot/wordpress/wp-content/plugins/redis-cache/includes/object-cache.php /data/wwwroot/wordpress/wp-content/ 
+```
+
+Log on to WordPress to enable Redis object cache. 
+
+![image.png](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting/raw/main/images/step3_2.png)
+
+In the left-side navigation pane, click Plugins. Find the Redis Object Cache plugin and click Activate.  
+After the plugin is activated, click Settings. 
+
+![image.png](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting/raw/main/images/step3_3.png)
+
+Verify that the plugin status is Connected. Click Flush Cache to synchronize cache data to the ApsaraDB for Redis instance.
+
+![image.png](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting/raw/main/images/step3_4.png)
+
+Now, your cloud native Wordpress has been setup successfully. You can visit it via SLB EIP:
+
+```php
+http://<SLB_EIP>/
+```
+
+#### Auto-scaling configuration
+After you have successfully configured and installed WordPress, you can follow the following guide for auto-scaling configurations:
+
+[https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting#step-4-optional-make-custom-ecs-image-for-auto-scaling](https://github.com/alibabacloud-howto/solution-cloud-native-web-hosting#step-4-optional-make-custom-ecs-image-for-auto-scaling)
 
 ---
 ### Phase 2-3: SLB + WordPress ECS Servers (Auto-scaling) + Multi-AZ Redis Cache + Cloud Native PolarDB MySQL
