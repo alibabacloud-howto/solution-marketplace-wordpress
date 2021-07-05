@@ -114,7 +114,7 @@ resource "alicloud_instance" "instance" {
 
 ######## EIP bind to wordpress setup ECS accessing from internet
 resource "alicloud_eip" "setup_ecs_access" {
-  bandwidth            = "10"
+  bandwidth            = "2"
   internet_charge_type = "PayByBandwidth"
 }
 

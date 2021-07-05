@@ -233,7 +233,7 @@ resource "alicloud_slb_backend_server" "default" {
 
 ######## EIP bind to wordpress setup ECS accessing from internet
 resource "alicloud_eip" "setup_ecs_access" {
-  bandwidth            = "10"
+  bandwidth            = "2"
   internet_charge_type = "PayByBandwidth"
 }
 
@@ -244,7 +244,7 @@ resource "alicloud_eip_association" "eip_ecs" {
 
 ######## EIP bind to SLB for Wordpress website accessing from internet
 resource "alicloud_eip" "website_slb_access" {
-  bandwidth            = "10"
+  bandwidth            = "2"
   internet_charge_type = "PayByBandwidth"
 }
 
