@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-06-24 19:01:27
- * @LastEditTime: 2021-07-05 10:15:17
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /ws_cloudsolution/solution-marketplace-wordpress/README.md
--->
 # WordPress (Marketplace) on Alibaba Cloud
 Quick start with WordPress on Alibaba Cloud. We use the [WordPress image on Alibaba Cloud Marketplace](https://marketplace.alibabacloud.com/products/56720001/WP_CMS_on_LAMP-sgcmjj00025386.html).
 
